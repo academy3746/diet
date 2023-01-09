@@ -118,8 +118,7 @@ class DatabaseHelper {
 
     List<Food> foods = [];
 
-    final queries =
-    await db.query(foodTable);
+    final queries = await db.query(foodTable);
 
     for (final query in queries) {
       foods.add(Food.fromDB(query));
@@ -127,7 +126,6 @@ class DatabaseHelper {
 
     return foods;
   }
-
 
   Future<int> insertWorkout(Workout workout) async {
     Database db = await instance.database;
@@ -153,7 +151,7 @@ class DatabaseHelper {
     List<Workout> workouts = [];
 
     final queries =
-    await db.query(workoutTable, where: "date = ?", whereArgs: [date]);
+        await db.query(workoutTable, where: "date = ?", whereArgs: [date]);
 
     for (final query in queries) {
       workouts.add(Workout.fromDB(query));
@@ -167,8 +165,7 @@ class DatabaseHelper {
 
     List<Workout> workouts = [];
 
-    final queries =
-    await db.query(workoutTable);
+    final queries = await db.query(workoutTable);
 
     for (final query in queries) {
       workouts.add(Workout.fromDB(query));
@@ -176,7 +173,6 @@ class DatabaseHelper {
 
     return workouts;
   }
-
 
   Future<int> insertEyeBody(EyeBody eyeBody) async {
     Database db = await instance.database;
@@ -202,7 +198,7 @@ class DatabaseHelper {
     List<EyeBody> eyeBodies = [];
 
     final queries =
-    await db.query(bodyTable, where: "date = ?", whereArgs: [date]);
+        await db.query(bodyTable, where: "date = ?", whereArgs: [date]);
 
     for (final query in queries) {
       eyeBodies.add(EyeBody.fromDB(query));
@@ -216,8 +212,7 @@ class DatabaseHelper {
 
     List<EyeBody> eyeBodies = [];
 
-    final queries =
-    await db.query(bodyTable);
+    final queries = await db.query(bodyTable);
 
     for (final query in queries) {
       eyeBodies.add(EyeBody.fromDB(query));
@@ -225,7 +220,6 @@ class DatabaseHelper {
 
     return eyeBodies;
   }
-
 
   Future<int> insertWeight(Weight weight) async {
     Database db = await instance.database;
@@ -241,8 +235,8 @@ class DatabaseHelper {
       // Data 변경
       final map = weight.toMap();
 
-      return await db
-          .update(weightTable, map, where: "date = ?", whereArgs: [weight.date]);
+      return await db.update(weightTable, map,
+          where: "date = ?", whereArgs: [weight.date]);
     }
   }
 
@@ -253,7 +247,7 @@ class DatabaseHelper {
     List<Weight> weights = [];
 
     final queries =
-    await db.query(weightTable, where: "date = ?", whereArgs: [date]);
+        await db.query(weightTable, where: "date = ?", whereArgs: [date]);
 
     for (final query in queries) {
       weights.add(Weight.fromDB(query));
@@ -267,8 +261,7 @@ class DatabaseHelper {
 
     List<Weight> eyeBodies = [];
 
-    final queries =
-    await db.query(bodyTable);
+    final queries = await db.query(bodyTable);
 
     for (final query in queries) {
       eyeBodies.add(Weight.fromDB(query));
